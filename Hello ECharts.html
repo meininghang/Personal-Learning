@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Echarts</title>
+    <!--引入echarts.js-->
+    <script src="echarts.js"></script>
+</head>
+<body>
+    <!--为Echarts准备一个具备大小（宽高）的DOM-->
+    <div id="main" style="width: 600px; height: 400px;"></div>
+    <script type="text/javascript">
+        //基于准备好的DOM，初始化Echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        //指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '这是主标题',
+                subtext: '这是副标题',
+                left:'center'
+            },
+            tooltip:{},
+            legend:{
+                data:['各产品销量情况']
+            },
+            xAxis:{
+                data:['产品A','产品B','产品C','产品D','产品E',]
+            },
+            yAxis:{},
+            textStyle:{
+                color:'blue',
+                fontWeight:'bolder',
+                fontFamily:'Microsoft YaHei'
+            },
+            series:[
+                {
+                    name:'销量',
+                    type:'bar',
+                    data:[900,700,550,1000,200]
+                }
+            ]
+        };
+        //使用刚指定的配置项和数据显示图表
+        myChart.setOption(option)
+    </script>
+</body>
+</html>
