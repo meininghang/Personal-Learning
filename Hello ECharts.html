@@ -5,41 +5,51 @@
     <title>Echarts</title>
     <!--引入echarts.js-->
     <script src="echarts.js"></script>
+    <!--引入infographic主题-->
+    <script src="infographic.js"></script>
 </head>
 <body>
     <!--为Echarts准备一个具备大小（宽高）的DOM-->
     <div id="main" style="width: 600px; height: 400px;"></div>
     <script type="text/javascript">
         //基于准备好的DOM，初始化Echarts实例
-        var myChart = echarts.init(document.getElementById('main'));
+        var myChart = echarts.init(document.getElementById('main'),'infographic');
 
         //指定图表的配置项和数据
         var option = {
-            title: {
-                text: '这是主标题',
-                subtext: '这是副标题',
-                left:'center'
-            },
-            tooltip:{},
-            legend:{
-                data:['各产品销量情况']
-            },
-            xAxis:{
-                data:['产品A','产品B','产品C','产品D','产品E',]
-            },
-            yAxis:{},
-            textStyle:{
-                color:'blue',
-                fontWeight:'bolder',
-                fontFamily:'Microsoft YaHei'
-            },
-            series:[
-                {
-                    name:'销量',
-                    type:'bar',
-                    data:[900,700,550,1000,200]
-                }
-            ]
+                xAxis: {},
+                yAxis: {},
+                legend: {
+                    data: ['1','2']
+                },
+                series: [{
+                    name:'1',
+                    data:[
+                        [2.0,8.89,100],
+                        [3.0,4.444,22],
+                        [4.0,3.444,34],
+                        [5.0,5.666,345],
+                        [6.0,5.90,90],
+                        [7.0,4.32,333]
+                    ],
+                    symbolSize: function(data){
+                        return data[2];
+                    },
+                    type: 'scatter',
+                },
+                    {
+                        name:'2',
+                        data:[
+                            [6.0,0.89],
+                            [3.3,4.55],
+                            [4.3,4.554],
+                            [7.88,4.44],
+                            [8.3,8.333],
+                            [9.33,8]
+                        ],
+                        type:'scatter'
+                    },
+            ],
         };
         //使用刚指定的配置项和数据显示图表
         myChart.setOption(option)
