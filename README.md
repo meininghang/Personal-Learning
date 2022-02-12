@@ -1,4 +1,1 @@
-学习Python，保持编程乐趣，每天起码🏇一小时。
-
-- 一个星期一本书，本周刷完《用Python动手学机器学习》。
-- 我何尝没有一个工程师的梦想呢？
+learning java/python/data structures
