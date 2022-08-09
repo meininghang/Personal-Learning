@@ -7,7 +7,7 @@ public class slelction {
 
         
 
-        for(int i=0; i< arr.le ngth; i++){
+        for(int i=0; i< arr.length; i++){
             System.out.println(arr[i] + " ");
         }
     }
