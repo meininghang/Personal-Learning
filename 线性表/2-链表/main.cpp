@@ -8,7 +8,7 @@ using namespace std;
 - 按值查询、按位置查询
 - n_th 插入
 - 删除*/
-
+// 1 l L 0 o O 5 s S
 typedef int ElemType;
 typedef struct LNode
 {
@@ -17,7 +17,7 @@ typedef struct LNode
 }LNode, *LinkList;
 
 void insertHeadVal(LinkList &L);
-void inserTailVal(LinkList &L);
+void insertTailVal(LinkList &L);
 void searchVal(LinkList L, ElemType &searchValNum);
 void searchOrder(LinkList L, int &orderNum);
 void insertNth(LinkList &L,int orderNum,ElemType &insertVal);
@@ -29,7 +29,7 @@ int main(){
     L = (LinkList)malloc(sizeof(LNode));
     L->next = NULL;
     //insertHeadVal(L);
-    inserTailVal(L);
+    insertTailVal(L);
     printList(L);
 //    ElemType searchValNum;
 //    cin >> searchValNum;
@@ -60,7 +60,7 @@ void insertHeadVal(LinkList &L)
         cin >> x;
     }
 }
-void inserTailVal(LinkList &L)
+void insertTailVal(LinkList &L)
 {
     LinkList r = (LinkList) malloc(sizeof(LNode));
     r = L;
