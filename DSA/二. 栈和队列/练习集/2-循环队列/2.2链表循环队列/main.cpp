@@ -7,7 +7,7 @@ typedef struct LReQueue{
 }LReQueue;
 
 void enLReQueue(LReQueue *front, LReQueue *&rear, int val);
-bool deQueue(LReQueue *&front, LReQueue *&rear);
+bool deQueue(LReQueue *&front, LReQueue *rear);
 
 int main()
 {   
@@ -51,7 +51,7 @@ void enLReQueue(LReQueue *front, LReQueue * &rear, int val)
     }
 }
 
-bool deQueue(LReQueue *&front, LReQueue *&rear)
+bool deQueue(LReQueue *&front, LReQueue *rear)
 {
     if (front==rear)
     {
