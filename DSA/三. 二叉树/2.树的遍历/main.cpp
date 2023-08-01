@@ -1,5 +1,9 @@
 #include "main.h"
 
+void preOrder(BiTree p);
+void inOrder(BiTree p);
+void postOrder(BiTree p);
+
 int main()
 {
     BiTree pnew;
@@ -35,5 +39,38 @@ int main()
             }
         }
     }
+    cout << "-----------前序遍历————————————" << endl;
+    preOrder(tree);
+    cout << endl;
+    cout << "-----------中序遍历————————————" << endl;
+    inOrder(tree);
+    cout << endl;
+    cout << "-----------后序遍历————————————" << endl;
+    postOrder(tree);
     return 0;
+}
+
+void preOrder(BiTree p)
+{
+    if (NULL!=p) {
+        cout << p->c << " ";
+        preOrder(p->lchild);
+        preOrder(p->rchild);
+    }
+}
+void inOrder(BiTree p)
+{
+    if (NULL!=p) {
+        inOrder(p->lchild);
+        cout << p->c << " ";
+        inOrder(p->rchild);
+    }
+}
+void postOrder(BiTree p)
+{
+    if (NULL!=p) {
+        postOrder(p->lchild);
+        postOrder(p->rchild);
+        cout << p->c << " ";
+    }
 }

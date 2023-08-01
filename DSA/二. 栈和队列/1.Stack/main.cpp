@@ -29,6 +29,7 @@ int main(){
     topStack(S);
     pushStack(S,5);
     topStack(S);
+
     popStack(S);
     topStack(S);
     return 0;
