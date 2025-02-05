@@ -32,4 +32,3 @@ class Car:
 class RaceCar(Car):
     engine_cls = V8Engine
 
-class

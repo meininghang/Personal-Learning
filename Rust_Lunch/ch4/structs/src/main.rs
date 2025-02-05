@@ -12,6 +12,7 @@ fn main() {
     let time = 8;
     let skystate = create_skystate(time);
     check_skystate(&skystate);
+    println!("test");
 }
 
 
