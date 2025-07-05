@@ -1,0 +1,90 @@
+direction: right
+
+# 代币发行层
+token_issuance: {
+  shape: rectangle
+  style.fill: "#FFF3E0"
+  label: "代币发行\n• 总供应量: 10亿枚\n• 初始流通: 20% (2亿枚)\n• LaunchPad释放: 剩余80%按矿池解锁"
+
+  presale: {
+    shape: cylinder
+    label: "预售分配\n• 价格: $0.00001\n• 预售资金50%注入流动性池\n• LP代币锁定1年"
+  }
+  
+  launchpad: {
+    shape: cylinder
+    label: "矿池释放\n• 新项目上架释放代币\n• 质押者优先认购"
+  }
+}
+
+# 通缩机制层
+deflation: {
+  shape: rectangle
+  style.fill: "#FFE4E1"
+  label: "通缩引擎\n• 目标: 年销毁率 >30%"
+
+  fee_burn: {
+    shape: step
+    label: "手续费销毁\n• 交易手续费的20%\n• 即时链上销毁"
+  }
+  
+  fomo_tax: {
+    shape: step
+    label: "Meme狂欢税\n• 涨幅超500%时\n• 卖出征收20%税\n• 税金全额销毁"
+  }
+}
+
+# 质押体系层
+staking: {
+  shape: rectangle
+  style.fill: "#E8F5E9"
+  label: "质押金字塔"
+
+  base_pool: {
+    shape: cylinder
+    label: "基础质押池\n• APY 500%\n• 新项目首发权益"
+  }
+  
+  leveraged_pool: {
+    shape: cylinder
+    label: "杠杆质押池\n• 3-10倍APY\n• 需绑定地块NFT\n• 清算线-30%"
+  }
+  
+  invite_tree: {
+    shape: pyramid
+    label: "邀请金字塔\n• 直接下级收益10%\n• 间接下级收益5%\n• 无限代际"
+  }
+}
+
+# 流动性层
+liquidity: {
+  shape: rectangle
+  style.fill: "#E3F2FD"
+  label: "流动性黑洞"
+
+  uniswap_v4: {
+    shape: cylinder
+    label: "Uniswap V4池\n• 仅GOLDX/USDT交易对\n• 50%流动性锁定"
+  }
+  
+  war: {
+    shape: step
+    label: "流动性战争\n• 周排名Top10地址\n• 获未释放代币20%空投"
+  }
+}
+
+# 核心连接关系（修复连接语法）
+token_issuance.presale -> deflation.fee_burn: 初始流动性注入
+deflation.fee_burn -> token_issuance: 通缩减少流通量
+staking.base_pool -> token_issuance.launchpad: 质押者优先认购
+liquidity.uniswap_v4 -> staking.leveraged_pool: 杠杆资金池来源
+token_issuance.launchpad -> liquidity.war: 空投代币来源
+
+# 跨层级关系（修复虚线语法）
+deflation.fomo_tax -> staking.invite_tree: 税收抑制抛售\\n促进邀请裂变 { 
+  style.stroke-dash: 3 
+}
+
+liquidity.war -> deflation: 流动性贡献者\\n获得通缩红利 { 
+  style.stroke-dash: 3 
+}
